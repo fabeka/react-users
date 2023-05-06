@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, Row, Col} from 'react-bootstrap';
+import Users from './Components/Users';
+import { Component } from 'react';
+import AddUserForm from './Components/AddUserForm'
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      users:[
+         {
+          name:"Yaw Barima",
+          email:"yawbarima@gmail.com",
+          gen:10
+         },
+         {
+          name:"Ama Mensah",
+          email:"ama12@gmail.com",
+          gen:12
+         },
+         {
+          name:"Eric Coffie",
+          email:"ohio66@gmail.com",
+          gen:14
+         },
+      ]
+    }
+  }
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+    <Container fluid style={{marginTop:30}}>
+        <Row >
+            <Col md="4">
+              <AddUserForm/>
+            </Col>
+
+            <Col>
+              <Users usersData={this.state.users}/>
+            </Col>
+
+        </Row>
+    </Container>
+    </>
   );
+}
 }
 
 export default App;
