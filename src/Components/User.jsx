@@ -13,7 +13,7 @@ function User(props) {
           <p>Gen: {props.userInfo.gen}</p>
         </Card.Text>
         <Button variant="info" size="sm" type="submit">Update</Button>
-        <Button variant="danger" size="sm" type="submit">Delete</Button>
+        <Button variant="danger" size="sm" type="submit" style={{marginLeft:10}}>Delete</Button>
         
       </Card.Body>
     </Card>
