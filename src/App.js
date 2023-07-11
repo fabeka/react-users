@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col} from 'react-bootstrap';
 import Users from './Components/Users';
 import { Component } from 'react';
-import AddUserForm from './Components/AddUserForm'
+import AddUserForm from './Components/AddUserForm';
 
 class App extends Component {
   constructor(props){
@@ -27,14 +27,19 @@ class App extends Component {
       ]
     }
   }
+  addNewUser=(user)=>{
+      this.setState({
+        users: [...this.state.users, user]
+      })
+  }
   render(){
   return (
-    <>
+    <div className="App">
       
-    <Container fluid style={{marginTop:30}}>
+    <Container fluid style={{marginTop:"2rem" }}>
         <Row >
             <Col md="4">
-              <AddUserForm/>
+              <AddUserForm addUser={this.addNewUser}/>
             </Col>
 
             <Col>
@@ -43,7 +48,7 @@ class App extends Component {
 
         </Row>
     </Container>
-    </>
+    </div>
   );
 }
 }
